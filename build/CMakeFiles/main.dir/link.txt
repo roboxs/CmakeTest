@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,-Map=output.map CMakeFiles/main.dir/main.c.o -o main  hello/hello.a

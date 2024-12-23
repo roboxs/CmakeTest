@@ -1,0 +1,3 @@
+/home/codedu/Code/CmakeTest/build/../install/src/main.c
+/home/codedu/Code/CmakeTest/build/../install/inc/hello.h
+/home/codedu/Code/CmakeTest/build/../install/lib/hello.a

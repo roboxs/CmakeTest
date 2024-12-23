@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.5)
+set(PROJECT_NAME main)
+project(${PROJECT_NAME})
+
+add_subdirectory(classtest)
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CLASSTEST_DIR})
+target_link_libraries(${PROJECT_NAME} classtest)
