@@ -5,13 +5,19 @@ set(HELLO_DIR
     CACHE INTERNAL "define an INTERNAL variable"
 )
 
-set(HELLO_INC
+file(GLOB HELLO_INC
     hello.h
 )
 
 set(HELLO_SRC
     hello.c
 )
+
+file(GLOB_RECURSE HELLO_TEST_INC
+    ${PROJECT_SOURCE_DIR}/*.h
+)
+
+message(STATUS "HELLO_TEST_INC=${HELLO_TEST_INC}")
 
 # add_library(${MODULE_NAME} SHARED hello.c)
 # set_target_properties(${MODULE_NAME} PROPERTIES 
