@@ -16,17 +16,16 @@ add_subdirectory(hello)
 
 #编译
 add_executable(${PROJECT_NAME} main.c)
-target_include_directories(${PROJECT_NAME} PRIVATE ${HELLO_DIR} ${HELLO_PERSON_DIR} ${HELLO_DOG_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${HELLO_DIR})
 target_compile_options(${PROJECT_NAME} PUBLIC -save-temps=obj -Wall -Wconversion)
 
 #链接
-target_link_libraries(${PROJECT_NAME} hello helloperson hellodog)
+target_link_libraries(${PROJECT_NAME} hello)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/../install")
 message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
-# install(TARGETS hello main
-#     LIBRARY DESTINATION lib
-#     RUNTIME DESTINATION bin
-# )
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION bin
+)
 
 install(FILES main.c DESTINATION src)

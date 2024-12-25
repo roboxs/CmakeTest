@@ -24,7 +24,8 @@ set(HELLO_SRC
 
 add_library(${MODULE_NAME} STATIC ${HELLO_SRC})
 set_target_properties(${MODULE_NAME} PROPERTIES OUTPUT_NAME "hello" PREFIX "")
-target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR})
+target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR} ${HELLO_PERSON_DIR} ${HELLO_DOG_DIR})
+target_link_libraries(${MODULE_NAME} PRIVATE hellodog helloperson)
 
 install(FILES ${HELLO_INC}
         DESTINATION inc)
