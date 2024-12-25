@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "hello.h"
+#include "hellodog.h"
+#include "helloperson.h"
 
 typedef struct {
     int x;
@@ -34,5 +36,7 @@ int main()
     printf("%d\n", b);
     printf("%d\n", c);
     PrintfHello();
+    PrintfDog();
+    PrintfPerson();
     funasm();
 }

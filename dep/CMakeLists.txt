@@ -1,0 +1,2 @@
+add_subdirectory(hellodog)
+add_subdirectory(helloperson)
