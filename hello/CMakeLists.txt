@@ -13,11 +13,15 @@ set(HELLO_SRC
     hello.c
 )
 
-file(GLOB_RECURSE HELLO_TEST_INC
-    ${PROJECT_SOURCE_DIR}/*.h
-)
-
-message(STATUS "HELLO_TEST_INC=${HELLO_TEST_INC}")
+#将文件路径转换成目录路径
+set(HELLO_INC_DIR "")
+foreach(HEADER_FILE ${HELLO_INC})
+    get_filename_component(DIR ${HEADER_FILE} DIRECTORY)
+    list(APPEND HELLO_INC_DIR ${DIR})
+endforeach()
+list(REMOVE_DUPLICATES  HELLO_INC_DIR) #去重
+message(STATUS "HELLO_INC=${HELLO_INC}")
+message(STATUS "HELLO_INC_DIR=${HELLO_INC_DIR}")
 
 # add_library(${MODULE_NAME} SHARED hello.c)
 # set_target_properties(${MODULE_NAME} PROPERTIES 
