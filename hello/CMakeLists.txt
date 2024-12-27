@@ -14,14 +14,17 @@ set(HELLO_SRC
 )
 
 #将文件路径转换成目录路径
-set(HELLO_INC_DIR "")
+set(HELLO_INC_DIRS_TEMP "")
 foreach(HEADER_FILE ${HELLO_INC})
     get_filename_component(DIR ${HEADER_FILE} DIRECTORY)
-    list(APPEND HELLO_INC_DIR ${DIR})
+    list(APPEND HELLO_INC_DIRS_TEMP ${DIR})
 endforeach()
-list(REMOVE_DUPLICATES  HELLO_INC_DIR) #去重
+list(REMOVE_DUPLICATES  HELLO_INC_DIRS_TEMP) #去重
+set(HELLO_INC_DIRS ${HELLO_INC_DIRS_TEMP}
+    CACHE INTERNAL ""
+)
 message(STATUS "HELLO_INC=${HELLO_INC}")
-message(STATUS "HELLO_INC_DIR=${HELLO_INC_DIR}")
+message(STATUS "HELLO_INC_DIRS=${HELLO_INC_DIRS}")
 
 # add_library(${MODULE_NAME} SHARED hello.c)
 # set_target_properties(${MODULE_NAME} PROPERTIES 

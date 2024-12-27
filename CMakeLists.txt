@@ -12,7 +12,7 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-Map=output.map")
 #编译库
 add_subdirectory(dep)
 add_subdirectory(hello)
-
+message(STATUS "HELLO_INC_DIRS=${HELLO_INC_DIRS}")
 
 #编译
 add_executable(${PROJECT_NAME} main.c)
