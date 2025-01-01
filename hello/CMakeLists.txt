@@ -44,6 +44,16 @@ target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR} ${HELLO_PERSON_DI
 add_dependencies(${MODULE_NAME} hellodog helloperson)
 
 #链接
+#PUBLIC PRIVATE INTERFACE关系，他们三个主要是针对target_include_directories/target_link_libraries/target_link_directories这几个命令
+#PUBLIC: 对当前target和依赖此target的其他target都有效例。如${CMAKE_SOURCE_DIR}/testlib对${PROJECT_NAME}是有效的
+#PRIVATE: 仅对当前target有效，其他target不会继承这些属性。如${HELLO_PERSON_DIR}/${HELLO_DOG_DIR})/${HELLO_DIR}对${PROJECT_NAME}是无效的
+#INTERFACE: 对当前target无效，仅对依赖此target的其他target有效。例如，可以作为接口库组合多个静态库，具体如下
+# add_library(mylib INTERFACE)
+# target_link_libraries(mylib  INTERFACE 
+# ${CMAKE_SOURCE_DIR}/testlib/libtesta.a
+# ${CMAKE_SOURCE_DIR}/testlib/libtestb.a
+# )
+# mylib作为一个接口库，它本身不会被编译，但是它的链接依赖会传递给其他目标
 target_link_directories(${MODULE_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/testlib)
 target_link_libraries(${MODULE_NAME} PRIVATE hellodog helloperson testa testb)
 
