@@ -43,7 +43,8 @@ target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR} ${HELLO_PERSON_DI
 add_dependencies(${MODULE_NAME} hellodog helloperson)
 
 #链接
-target_link_libraries(${MODULE_NAME} PRIVATE hellodog helloperson)
+target_link_directories(${MODULE_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/testlib)
+target_link_libraries(${MODULE_NAME} PRIVATE hellodog helloperson testa testb)
 
 install(FILES ${HELLO_INC}
         DESTINATION inc)
