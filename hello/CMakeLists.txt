@@ -35,6 +35,7 @@ message(STATUS "HELLO_INC_DIRS=${HELLO_INC_DIRS}")
 # )
 # target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR})
 
+#静态库
 add_library(${MODULE_NAME} STATIC ${HELLO_SRC})
 set_target_properties(${MODULE_NAME} PROPERTIES OUTPUT_NAME "hello" PREFIX "")
 target_include_directories(${MODULE_NAME} PRIVATE ${HELLO_DIR} ${HELLO_PERSON_DIR} ${HELLO_DOG_DIR})
