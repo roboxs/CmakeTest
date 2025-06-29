@@ -11,6 +11,6 @@ mkdir bin lib inc src
 cd ${outdir}/../build
 pwd
 rm -rf *
-cmake ..
+cmake -G "MinGW Makefiles" ..
 make -j 8
 make install
